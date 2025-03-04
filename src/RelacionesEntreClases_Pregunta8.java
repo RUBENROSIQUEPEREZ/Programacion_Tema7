@@ -36,3 +36,72 @@ public class RelacionesEntreClases_Pregunta8 {
         l1.apagar();
     }
 }
+abstract class Gadget{
+    private String marca;
+    private String modelo;
+
+    Gadget(String marca, String modelo){
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    //No lo entiendo 48,49
+    abstract void encender();
+    abstract void apagar();
+
+    @Override
+    public String toString(){
+        return "Marca: " + marca + " Modelo: " + modelo;
+    }
+}
+class Tablet extends Gadget{
+    private float tamPantalla;
+
+    Tablet(String marca, String modelo, float tamPantalla){
+        super(marca, modelo);
+        this.tamPantalla = tamPantalla;
+    }
+
+    @Override
+    void encender(){
+        System.out.println("Tablet encendida.");
+    }
+
+    @Override
+    void apagar() {
+        System.out.println("Tablet apagada.");
+    }
+    @Override
+    public String toString(){
+        return "Tablet{marca="+getMarca()+", modelo="+ getModelo() + ", tamPantalla="+ tamPantalla+"}";
+    }
+}
+class Laptop extends Gadget{
+    private String idiomaTeclado;
+
+    Laptop(String marca, String modelo, String idiomaTeclado){
+        super (marca, modelo);
+        this.idiomaTeclado = idiomaTeclado;
+    }
+
+    @Override
+    void encender(){
+        System.out.println("Laptop encendido.");
+    }
+    @Override
+    void apagar(){
+        System.out.println("Laptop apagado.");
+    }
+    @Override
+    public String toString(){
+        return "Laptop{marca="+getMarca()+", modelo="+ getModelo() + ", idiomaTeclado="+ idiomaTeclado+"}";
+    }
+}
