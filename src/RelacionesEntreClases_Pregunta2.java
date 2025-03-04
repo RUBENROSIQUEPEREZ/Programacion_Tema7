@@ -28,15 +28,15 @@ Asegúrate de que el código esté bien organizado, comentado adecuadamente y si
 
 public class RelacionesEntreClases_Pregunta2 {
     public static void main (String []args){
-        Automovil miAuto = new Automovil();
+        Automovil miAuto = new Automovil(); //Llamamos a los metodos de la clase Automovil
 
         //2. Intentamos apagar el motor
         miAuto.apagarMotor();
-        // Intentamos encender el motor
+        //4. Intentamos encender el motor
         miAuto.encenderMotor();
-        // Intentamos encender el motor
+        //6. Intentamos encender el motor
         miAuto.encenderMotor();
-        // Intentamos apagar el motor
+        //8. Intentamos apagar el motor
         miAuto.apagarMotor();
     }
 }
@@ -47,12 +47,12 @@ class Motor{
         this.encendido = false; //1. Motor apagado por defecto
     }
 
-    public void encenderMotor(){
+    public void encender(){
         this.encendido =true;
         System.out.println("Motor encendido.");
     }
 
-    public void apagarMotor(){
+    public void apagar(){
         this.encendido = false;
         System.out.println("Motor apagado.");
     }
@@ -68,17 +68,21 @@ class Automovil{
         this.motor = new Motor();
     }
 
+    //5. motor.estaEncendido() retorna false, por lo que se ejecuta el if
+    //7. motor.estaEncendido() retorna true, por lo que se ejecuta el else
     public void encenderMotor(){
         if (!motor.estaEncendido()){
-            motor.encenderMotor();
+            motor.encender();
         } else {
             System.out.println("El motor ya está encendido.");
         }
     }
 
+    //3. motor.estaEncendido() retorna true, pero como este devuelve un false (Ya que está apagado), se ejecuta el else
+    //9. motor.estaEncendido() retorna false, por lo que se ejecuta el if
     public void apagarMotor(){
         if (motor.estaEncendido()){
-            motor.apagarMotor();
+            motor.apagar();
         } else {
             System.out.println("El motor ya está apagado.");
         }
