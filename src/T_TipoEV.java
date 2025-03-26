@@ -1,5 +1,6 @@
-enum Tarea_TipoEV {
+enum T_TipoEV {
     HEV,
     PHEV,
     EV,
 }
+
